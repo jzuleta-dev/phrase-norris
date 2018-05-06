@@ -18,9 +18,8 @@ class LoginModal extends Component {
     const notContainRegExp = new RegExp(/^[^iOl]+$/)
     const a = sequenceRegExp.test(this.state.value)
     const b = notContainRegExp.test(this.state.value)
-    const d = hello.test(this.state.value)
     const c = this.state.value.length > 2 && this.state.value.length < 33
-    if (a && b && c && d) return 'success'
+    if (a && b && c) return 'success'
     return null
   }
 
