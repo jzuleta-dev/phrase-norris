@@ -10,7 +10,7 @@ export default (rootReducer, rootSaga) => {
 
   const middleware = []
   const enhancers = []
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
   /* ------------- Saga Middleware ------------- */
   const sagaMiddleware = createSagaMiddleware()
@@ -25,6 +25,7 @@ export default (rootReducer, rootSaga) => {
     const persistConfig = {
       key: 'root',
       storage,
+      blacklist: ['phrases'],
       stateReconciler: seamlessImmutableReconciler,
       transforms: [seamlessImmutableTransformer]
     }

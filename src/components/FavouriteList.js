@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import styled from 'styled-components'
 import PhrasesActions from '../redux/PhrasesRedux'
 import FavouriteActions from '../redux/FavouriteRedux'

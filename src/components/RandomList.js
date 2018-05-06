@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import styled from 'styled-components'
 import PhrasesActions from '../redux/PhrasesRedux'
 import FavouriteActions from '../redux/FavouriteRedux'
@@ -51,7 +51,7 @@ class RandomList extends Component {
   }
 
   componentDidMount () {
-    this.props.getPhrases(10)
+      this.props.getPhrases(10)
   }
 
   addPhrase(joke) {
@@ -59,21 +59,22 @@ class RandomList extends Component {
   }
 
   render () {
+    const { phrases, favourites, getPhrases } = this.props
     return (
       <Content>
         <TitleContainer>
           <Text>Random</Text>
-           <Button onClick={() => this.props.getPhrases(10)}>
+           <Button onClick={() => getPhrases(10)}>
             Get New Phrases!
            </Button>
         </TitleContainer>
 
         {
-          this.props.phrases.jokes.map(
+          phrases.jokes ? phrases.jokes.map(
             joke => (
               <TextContainer key={joke.id}>
                 <StarButton 
-                  disabled={findIndex(propEq('id', joke.id))(this.props.favourites.phrases) !== -1}
+                  disabled={findIndex(propEq('id', joke.id))(favourites.phrases) !== -1}
                   onClick={() => this.addPhrase(joke)}
                 >
                   <Glyphicon glyph="star" />
@@ -82,6 +83,7 @@ class RandomList extends Component {
               </TextContainer>
             )
           )
+          : null
         }
       </Content>
     )
@@ -89,9 +91,11 @@ class RandomList extends Component {
 }
 
 const mapStateToProps = (state) => {
+
   return {
     phrases: state.phrases,
-    favourites: state.favourites
+    favourites: state.favourites,
+    userLoggedIn: state.login.loggedIn
   }
 }
 

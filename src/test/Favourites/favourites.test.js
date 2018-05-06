@@ -1,4 +1,3 @@
-import * as J from 'jest'
 import FavouriteActions, {addPhrase as addPhraseReducer, removePhrase as removePhraseReducer} from '../../redux/FavouriteRedux'
 import Immutable from 'seamless-immutable'
 

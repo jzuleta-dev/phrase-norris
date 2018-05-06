@@ -18,7 +18,7 @@ const { Types, Creators } = createActions({
   removePhrase: ['id']
 }, {prefix: 'FAVOURITE_'})
 
-export const BoardTypes = Types
+export const FavouriteTypes = Types
 export default Creators
 
 /* ------------- Initial State ------------- */
